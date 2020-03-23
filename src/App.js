@@ -7,7 +7,7 @@ import SignInSignUp from './pages/sign_in-sign_up/sign_in-sign_up.component';
 
 import Header from './components/header/header.component';
 
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import './App.css';
 
@@ -23,9 +23,8 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user });
-      console.log(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+      createUserProfileDocument(user);
     });
   }
   
