@@ -9,6 +9,7 @@ import { setCurrentUser } from './redux/user/user.action';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
 import SignInSignUp from './pages/sign_in-sign_up/sign_in-sign_up.component';
+import CHeckoutPage from './pages/checkout/checkout.component';
 
 import Header from './components/header/header.component';
 
@@ -57,6 +58,7 @@ class App extends Component {
               (<SignInSignUp />
             )} 
           />
+          <Route exact path='/checkout' component={CHeckoutPage} />
         </Switch>
       </div>
     );
